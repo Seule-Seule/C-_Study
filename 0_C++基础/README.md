@@ -5,8 +5,8 @@
 
 ## 目录
 
-- [HelloWorld](HelloWorld)
-- [C++对C的扩展](C++对C的扩展)
+- [HelloWorld](#HelloWorld)
+- [C++对C的扩展](#C++对C的扩展)
 
 ## HelloWorld
 
