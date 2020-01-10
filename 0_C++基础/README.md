@@ -7,6 +7,7 @@
 
 - [HelloWorld](#HelloWorld)
 - [C++对C的扩展](#C++对C的扩展)
+- [C和C++中的const](#C和C++中的const)
 
 ## HelloWorld
 
@@ -31,5 +32,18 @@
 - [新增bool类型](01_namespace/06_新增bool类型.cpp)
 - [三目运算符](01_namespace/07_三目运算符.cpp)
   - C语言中表达式不能直接做左值，C++中可以
+
+## C和C++中的const
+
+- [C和C++中对const的实现](02_C语言和C++中的const/00_C和C++中const的实现.cpp)
+  - C语言中const可以通过指针修改，C++中不能修改
+  - C语言只是增加了一个不能修改的属性
+  - C++放在了符号表中，不能以任何方式修改
+- [C++中const和#define的异同](02_C语言和C++中的const/00_C和C++中const的实现.cpp)
+  - 相同点
+    - 可以用const替代#define使用
+  - 不同点
+    - const 由编译器提供处理，有变量检查和作用域
+    - #define 由预处理器处理，只实现文本处理功能
 
 
