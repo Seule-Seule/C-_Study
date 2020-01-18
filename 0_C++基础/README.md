@@ -13,9 +13,11 @@
 - [C++对C的函数扩展](#C++对C的函数扩展)
 
 > 面向对象基础
-- [类的封装](#面向对象基础)
+- [类的封装](#类的封装)
 - [构造函数和析构函数](#构造函数和析构函数)
 - [数组类的设计实现](#数组类的设计实现)
+- [友元函数](#友元函数)
+- [运算符重载](#运算符重载)
 
 ## HelloWorld
 
@@ -164,8 +166,49 @@
   - const 修饰成员函数时，本质上修饰this指针，即this指针所指内存空间不能被修改
   - void ConstPrint(const Test* const thisint a, int b)
 
-## 数组类的设计和实现
+## 数组类的设计实现
 
 - [数组类的设计和实现](07_数组类的设计和实现/00_TestArray.cpp)
   - [头文件](07_数组类的设计和实现/00_Array.h)
   - [cpp文件](07_数组类的设计和实现/00_Array.cpp)
+
+## 友元函数
+
+- [友元函数](08_友元函数和友元类/00_友元函数.cpp)
+  - 友元函数是类的好朋友，能访问类的私有变量
+  - 友元函数在类中声明的位置没有意义
+- [友元类](08_友元函数和友元类/00_友元函数.cpp)
+  - 友元类一般用在数据操作或者类之间消息辅助传递
+
+## 运算符重载
+
+- [运算符重载基础](09_运算符重载/00_运算符重载.cpp)
+  - 为实现自定义数据类型使用操作符进行运算符重载
+  - 运算符重载本质是函数调用
+- [二元操作符重载](09_运算符重载/01_二元运算符重载.cpp)
+  - 操作符重载函数的确定：
+    - 1 确定函数名， operator重载运算符()
+    - 2 确定参数：运算符运算对象
+    - 3 确定返回值： 根据实际需要确定
+- [一元操作符重载](09_运算符重载/02_一元操作符的重载.cpp)
+  - 重载 前置++ 操作符,友元函数`friend Complex& operator++(Complex& z1);`
+  - 重载 前置-- 操作符,成员函数`Complex& operator--()`
+	- 重载 后置++ 操作符,友元函数`friend Complex operator++(Complex& z1, int);`
+  - 重载 后置-- 操作符,成员函数`Complex operator--(int)`
+  - 成员函数实现重载多用于相同类之间使用操作符的场景
+- [左移右移操作符重载](09_运算符重载/03_左移右移操作符重载.cpp)
+  - `cout << z1;`重载`ostream& operator<<(ostream& out, Complex& z1)`
+  - `cin >> z1;`重载`istream& operator>>(istream& in, Complex& z1)`
+  - 友元函数实现重载多用于不同类之间使用操作符的场景
+- [等号操作符重载](09_运算符重载/04_重载等号操作符.cpp)
+  - `s3 = s4 = s1;`等号重载`Student &operator=(Student & s1);`
+  - 释放旧资源后再赋新值
+  - 返回一个引用，满足链式编程
+- [数组类优化](09_运算符重载/05_TestArray.cpp)
+  - 重载中括号\[\]`int& operator[](int index)`
+  - 重载等号操作符 = `Array& operator=(Array& IntArray)`
+  - 重载等号操作符 == `bool operator==(Array &IntArray3)`
+  - 重载不等号操作符 != `bool operator!=(Array& IntArray3)`
+  - 重载左移操作符 << `ostream& operator<<(ostream& out, Array& IntArray)`
+  - 重载右移操作符 >>`istream&  operator>>(istream& in, Array& IntArray)`
+
