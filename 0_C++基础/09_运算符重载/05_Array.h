@@ -18,6 +18,7 @@ public:
 	Array& operator=(Array& IntArray);
 	bool operator==(Array& IntArray3);
 	bool operator!=(Array& IntArray3);
+	void operator()(int PrintLen);
 	friend ostream& operator<<(ostream& out, Array& IntArray);
 	friend istream& operator>>(istream& in, Array& IntArray);
 private:

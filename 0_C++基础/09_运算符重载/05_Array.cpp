@@ -129,3 +129,16 @@ istream& operator>>(istream& in, Array& IntArray)
 	cout << "Array complete input!" << endl;
 	return in;
 }
+
+void Array::operator()(int PrintLen)
+{
+	if (this->lenght < PrintLen)
+	{
+		PrintLen = this->lenght;
+	}
+	for (int i = 0; i < PrintLen; i++)
+	{
+		cout<< this->pValue[i] << "  ";
+	}
+	cout << endl;
+}

@@ -18,6 +18,7 @@
 - [数组类的设计实现](#数组类的设计实现)
 - [友元函数](#友元函数)
 - [运算符重载](#运算符重载)
+- [字符串类的实现](#字符串类的实现)
 
 ## HelloWorld
 
@@ -211,4 +212,9 @@
   - 重载不等号操作符 != `bool operator!=(Array& IntArray3)`
   - 重载左移操作符 << `ostream& operator<<(ostream& out, Array& IntArray)`
   - 重载右移操作符 >>`istream&  operator>>(istream& in, Array& IntArray)`
+  - 重载括号运算符()`void operator()(int& PrintLen)`
+  - 不能重载`&&`和`||`运算符，这两个运算符具有短路机制(若左值不符合要求则不计算右值)，C++操作符重载由函数实现，而函数无法实现短路机制。(结论:可以重载但无法实现短路规则)
 
+## 字符串类的实现
+
+- [基本操作符的重载](String/00_TestString.cpp)

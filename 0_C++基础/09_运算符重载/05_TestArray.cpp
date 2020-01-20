@@ -80,14 +80,18 @@ void main()
 	// cout.operator<<(IntArray)
 	// operator<<(cout, IntArray)
 	// ostream& operator<<(ostream& out, Array& IntArray)
-	cout << IntArray << IntArray3;
+	//cout << IntArray << IntArray3;
 	 
 	//重载右移操作符 >>
 	// cin.operator>>(IntArray)
 	//istream&  operator>>(istream& in, Array& IntArray)
-	cin >> IntArray >> IntArray3;
-	cout << IntArray << IntArray3;
+	//cin >> IntArray >> IntArray3;
+	//cout << IntArray << IntArray3;
 
+
+	//重载括号运算符()
+	//void operator()(int& PrintLen)
+	IntArray(5);
 	cout << "Hello World!" << endl;
 	system("pause");
 
