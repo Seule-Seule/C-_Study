@@ -1,4 +1,5 @@
 ﻿
+#define _CRT_SECURE_NO_WARNINGS
 #include "iostream"
 using namespace std;
 
@@ -70,6 +71,12 @@ void main()
 	s3 = s1 - s2;
 	cout << s1 << s2 << s3 << endl;
 	
+
+	// 指针外露
+	// 拷贝时注意已分配内存的大小！！
+	// if(len>s3.GetStringLen){拷贝操作};
+	strcpy(s3.GetpSting(), "aaaaa");
+	cout << s1 << s2 << s3 << endl;
 	cout << "Hello World!" << endl;
 	system("pause");
 

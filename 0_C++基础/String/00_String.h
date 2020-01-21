@@ -13,7 +13,8 @@ public:
 
 public:
 	void Print();
-
+	char* GetpSting();
+	int GetStringLen();
 public:
 	String& operator=(String& sObj);
 	bool  operator>(String& sObj);

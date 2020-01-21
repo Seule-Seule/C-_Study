@@ -152,3 +152,14 @@ String& String::operator-(String& sObj)
 	delete[]ptmp;
 	return *this;
 }
+
+char* String::GetpSting()
+{
+	return pString;
+}
+
+
+int String::GetStringLen()
+{
+	return StringLen;
+}
