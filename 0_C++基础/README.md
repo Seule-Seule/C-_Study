@@ -19,6 +19,7 @@
 - [友元函数](#友元函数)
 - [运算符重载](#运算符重载)
 - [字符串类的实现](#字符串类的实现)
+- [继承](#继承)
 
 ## HelloWorld
 
@@ -218,3 +219,36 @@
 ## 字符串类的实现
 
 - [基本操作符的重载](String/00_TestString.cpp)
+
+## 继承
+
+- [继承基本语法](11_继承/00_继承的基本语法.cpp)
+  
+- `class Student :public People`
+  
+- [继承中的访问控制](11_继承/01_继承中的访问控制.cpp)
+  - public     : 公共成员-类的内部和类的外部均可访问
+  
+  - protected  : 受保护的成员-类的内部和派生类可访问
+  
+  - private    : 私有成员-类的内部可访问，外部不能访问
+  
+- 子类对外的访问控制：
+  
+  - |           | public    | protected | private |
+    | --------- | --------- | --------- | ------- |
+    | public    | public    | protected | private |
+    | protected | protected | protected | private |
+    | private   | private   | private   | private |
+
+- [派生类中访问控制结论](11_继承/01_继承中的访问控制.cpp)
+  - 一般都用`public`继承
+  - 需要子类访问的用`protected`
+  - 不需要子类访问的用`private`
+
+- [继承中的兼容性](11_继承/02_继承的兼容性原则.cpp)
+  - 赋值兼容
+    - 基类指针赋值子类对象
+    - 基类引用赋值子类对象
+    - 基类对象赋值给子类(ERRO)
+  - 子类对象copy构造基类对象
