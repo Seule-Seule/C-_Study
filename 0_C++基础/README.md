@@ -345,3 +345,11 @@
   - 定义一个数组指针类`typedef int (*pArray)[10];`
   - 定义一个数组指针`int (*p)[10];`
 
+- [函数指针语法](14_C语言多态/01_函数指针语法.cpp)
+	- 定义一个函数类型`typedef int (VoidClass)(int a);`
+	- 定义一个函数指针类型`typedef int (*pVoid)(int a);`
+	- 定义一个指向函数的指针`int (*pPrint)(int a);`
+
+- [函数指针做函数参数](14_C语言多态/02_函数指针做函数参数.cpp)
+  - 使用函数指针定义接口,实现了框架,是设计思想的基础`void PrintMain(int (*pVoidClass)(int a)`
+  
