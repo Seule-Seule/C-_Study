@@ -72,7 +72,7 @@ ostream& operator<<(ostream& out, const MyVector< Type >& obj)
 {
 	for (int i = 0; i < obj.ValueLen; i++)
 	{
-		out << obj.ValueSpace[i] << " ";
+		out << " "<< obj.ValueSpace[i] ;
 	}
 	out << endl;
 	return out;
