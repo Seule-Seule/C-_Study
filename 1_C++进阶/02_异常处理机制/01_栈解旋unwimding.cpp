@@ -32,6 +32,31 @@ void voidTest2()
 	voidTest();
 }
 
+// 异常接口声明
+// 不写，可以抛出任何类型异常
+void voidTest3()
+{
+	Test t1(1), t2(2), t3(3);
+	cout << "发生异常" << endl;
+	throw 2;
+}
+
+// 写了， 只能抛出列表异常
+void voidTest4() throw(int , char , char *)
+{
+	Test t1(1), t2(2), t3(3);
+	cout << "发生异常" << endl;
+	throw 2;
+}
+
+// 异常列表为空， 不抛出任何类型异常
+void voidTest5() throw()
+{
+	Test t1(1), t2(2), t3(3);
+	cout << "发生异常" << endl;
+	throw 2;
+}
+
 
 // 栈解旋
 //   从进入try语句到发生异常的语句之前所有栈变量都将被析构，析构顺序与构造顺序相反
