@@ -127,5 +127,63 @@
   - `cin.getline(buf2, 256);`获取一个串，可以接受空格
   - `cin.ignore(2); `忽略字符
   - `Test = cin.peek();`查看缓冲区是否有数据，如果有则读出数据， 没有返回0
-	
-	
+
+- [标准输出cout](03_C++输入输出流/01_coutAPI.cpp)
+  - 单个字符输出 `cout.put('a').put('b');  `
+	- 刷新缓存 `cout.flush();`   
+  - 输出二进制流 
+
+  ```c++
+    cout.write(buf, strlen(buf)) << endl;
+    cout.write(buf, strlen(buf) - 4) << endl;
+    cout.write(buf, strlen(buf) + 8) << endl;   // 注意越界
+  ```
+  - 控制输出长度 `cout.width(30); `
+	- 填充字符 `cout.fill('&');`
+  - 输入输出流的控制符
+
+    |控制符|	作 用|
+    |:--:|:--|
+    |dec|	设置数值的基数为10|
+    |hex|	设置数值的基数为16|
+    |oct|	设置数值的基数为8|
+    |setfill(c)|	设置填充字符c，c可以是字符常量或字符变量
+    |setprecision(n)|	|设置浮点数的精度为n位。在以一般十进制小数形式输出时，n代表有效数字。在以fixed(固定小数位数)形式和 scientific(指数)形式输出时，n为小数位数|
+    |setw(n)|	设置字段宽度为n位|
+    |setiosflags( ios::fixed)|	设置浮点数以固定的小数位数显示|
+    |setiosftags( ios::scientific)|	设置浮点数以科学记数法(即指数形式)显示|
+    |setiosflags( ios::left)|	输出数据左对齐|
+    |setiosflags( ios::right)|	输出数据右对齐|
+    |setiosflags( ios::skipws)|	忽略前导的空格|
+    |setiosflags( ios::uppercase)|	数据以十六进制形式输出时字母以大写表示|
+    |setiosflags( ios::lowercase)|	数据以十六进制形式输出时宇母以小写表示|
+    |setiosflags(ios::showpos)|	输出正数时给出“+”号|
+
+- [文件流fstream](03_C++输入输出流/02_fstreamAPI.cpp)
+  - 普通文件读写
+    - 建立一个输出流对象和文件关联 `ofstream  fout(fileName);`
+      - 判断文件是否打开成功` if (!fout){...; return ;}`
+      - 写文件 `fout << "test line one. " << endl;`
+      - 关闭文件 `fout.close();`
+    - 建立一个输入流对象和文件关联 `ifstream  fin(fileName);`
+      - `fin >> buf;  // 只读了一个单词`
+      
+      ```c++
+      char buf[256] = { 0 };
+      while (fin >> buf)  // 读出了所有行， 但是空格和回车没有了
+	    {
+		      cout << buf;
+	    }
+      char ch;
+      while (fin2.get(ch))  // 可以读出所有内容,包括空格和回车
+      {
+        cout << ch;
+      }
+      ```
+
+  - 二进制文件读写
+    - 建立一个输出流对象和二进制文件关联 `ofstream  fout(_fileName, ios::binary);`
+    - 写入二进制数据 `fout.write((char*)&t1, sizeof(t1));`
+    - 建立一个输入流对象和二进制文件关联 `ifstream fin(_fileName, ios::binary);`
+    - 读出二进制数据 `fin.read((char*)&tmp, sizeof(TestClass));`
+
