@@ -222,7 +222,7 @@
     - 转大写：`transform(s.begin(), s.end(), s.begin(), toupper); // toupper位置参数可以是 1函数入口地址 2函数对象 3预定义函数对象`
     - 转小写：`transform(s.begin(), s.end(), s.begin(), tolower);`
 
-- [vector基础](04_stl基础/02_vector基础.cpp)
+- [vector单端数组基础](04_stl基础/02_vector基础.cpp)
   - 尾部插入    ` v1.push_back(i); `
   - 获取头部元素 ` v1.front() << endl;`
   - 获取尾部元素 ` v1.back() << endl;  ` 
@@ -249,3 +249,15 @@
     - 指定位置删除  删除第三个元素 `v1.erase(v1.begin() + 2);`
 	  - 指定元素删除  for循环if判断实现
     - 插入 头插22 尾插23 `v1.insert(v1.begin(), 22);v1.insert(v1.end(), 23);`
+
+- [deque双端数组基础](04_stl基础/03_deque容器基础.cpp)
+  - 尾部添加 `d1.push_back(0);`
+  - 首部添加 `d1.push_front(-1);`
+	- 首部元素 `d1.front();`
+	- 尾部元素 `d1.back();`
+	- 尾部弹出 `d1.pop_back();`
+	- 首部弹出 `d1.pop_front();`
+  - 查找元素0的位置
+	  - `deque<int>::iterator it = find(d1.begin(),d1.end(), 0);`
+	  - `cout << "元素 0 下标为 : " << distance(d1.begin(), it) << endl;`
+	  - distance 求偏移 
