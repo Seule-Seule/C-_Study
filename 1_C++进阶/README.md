@@ -261,3 +261,8 @@
 	  - `deque<int>::iterator it = find(d1.begin(),d1.end(), 0);`
 	  - `cout << "元素 0 下标为 : " << distance(d1.begin(), it) << endl;`
 	  - distance 求偏移 
+
+- [stack栈容器](04_stl基础/04_stack栈模型.cpp)
+  - 入栈 `s.push(0); `
+  - 出栈 `s.pop();`
+  - 获取栈顶元素` s.top();`
