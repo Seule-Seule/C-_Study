@@ -9,6 +9,7 @@
 - [类型转换](#类型转换)
 - [异常处理机制](#异常处理机制)
 - [C++的输入输出流](#C++的输入输出流)
+- [stl实用技术](#stl实用技术)
 
 ## 函数模板
 
@@ -187,3 +188,64 @@
     - 建立一个输入流对象和二进制文件关联 `ifstream fin(_fileName, ios::binary);`
     - 读出二进制数据 `fin.read((char*)&tmp, sizeof(TestClass));`
 
+## stl实用技术
+
+- [stl容器算法迭代器基本概念](04_stl基础/00_stl容器算法迭代器基本概念.cpp)
+  - 容器 把数据copy到容器中, 实现了 数据结构 和 算法 的有效分离
+  - 迭代器  相当于一个指针
+  - 算法和容器无缝连接 
+
+- [string基础](04_stl基础/01_String类基础.cpp)
+  - string 初始化
+	  - `string s1 = "aaaaaaaaa";  - `
+	  - `string s2("bbbbbbbb");  - `
+	  - `string s3 = s2; // copy 构造  - `
+	  - `string s4(10, 'c');  - `
+  - string 遍历
+    - 1 数组方式 s[i] 
+    - 2 迭代器方式 `string::iterator it = s.begin(); it != s.end(); it++`
+	  - 3 at 方式 s.at(i) // 与直接使用[]相比，at 越界抛出异常
+  - 字符指针和 char * 之间转换
+    - char * ==> string: `string s1 = "cscscscs";`
+    - string ==> char *: `char* p = const_cast<char*>(s1.c_str());`
+    - string copy到buf : `s1.copy(buf, 5);  // 只copy 内存数据, 不添加 '\0' 构成从风格字符串手动添加或者buf初始化为0`
+  - 字符串连接
+    - 使用+ `s1 += s2;`
+    - 使用append() `s1.append(s2);`
+  - string 的查找和替换
+    - 查找 `index = s.find("ilu", 0);  // 从位置0查找字符串`
+    - 替换 `s.replace(index, 3, "ILU");`
+  - string 的插入和删除
+    - 从index位置删除n个数据 `s.erase(index, n);`
+	  - 在index位置插入n个Z字符`s.insert(index, n, 'Z');`
+  - string transform算法
+    - 转大写：`transform(s.begin(), s.end(), s.begin(), toupper); // toupper位置参数可以是 1函数入口地址 2函数对象 3预定义函数对象`
+    - 转小写：`transform(s.begin(), s.end(), s.begin(), tolower);`
+
+- [vector基础](04_stl基础/02_vector基础.cpp)
+  - 尾部插入    ` v1.push_back(i); `
+  - 获取头部元素 ` v1.front() << endl;`
+  - 获取尾部元素 ` v1.back() << endl;  ` 
+  - 删除尾部元素 ` v1.pop_back(); `
+  - vector遍历
+    - 方括号      `vInt[i] `
+    - at访问元素 ` vInt.at(i) // 与直接使用[]相比，at 越界抛出异常`
+  - vector初始化
+    - 无参构造函数	`vector <int > v1;` 
+    - copy 构造函数`vector<int> v2 = v1; `
+    - 带参构造函数 从v1头到v1尾-2赋值给v3 `vector<int> v3(v1.begin(), v1.end() - 2);`
+    - 带参构造函数 v4尾部插入4个5 `vector<int> v4(4, 5);`
+  - 迭代器
+    - 1 正逆序指针值
+      - 正序时， begin()指向首元素，end()指向尾元素的后一个地址
+      - 逆序时， rbegin()指向为元素，rend()指向首元素的前一个地址
+    - 2 迭代器分类
+      - `using iterator               = _Vector_iterator<_Scary_val>; `
+      - `using const_iterator         = _Vector_const_iterator<_Scary_val>;  `
+      - `using reverse_iterator       = _STD reverse_iterator<iterator>;`
+      -` using const_reverse_iterator = _STD reverse_iterator<const_iterator>;`
+  - vector 插入删除操作
+    - 指定序列删除  删除前两个元素 `v1.erase(v1.begin(), v1.begin() + 2);`
+    - 指定位置删除  删除第三个元素 `v1.erase(v1.begin() + 2);`
+	  - 指定元素删除  for循环if判断实现
+    - 插入 头插22 尾插23 `v1.insert(v1.begin(), 22);v1.insert(v1.end(), 23);`
