@@ -272,3 +272,20 @@
   - 队头元素 `q.front()`
   - 队列长度 `q.size()`
   - 队列判空 `q.empty()`
+
+- [list双向链表模型](04_stl基础/06_list双向链表.cpp)
+  - 尾部添加 `d1.push_back(0);`
+  - 首部添加 `d1.push_front(-1);`
+	- 首部元素 `d1.front();`
+	- 尾部元素 `d1.back();`
+	- 尾部弹出 `d1.pop_back();`
+	- 首部弹出 `d1.pop_front();`
+  - 插入 `l.insert(itInsert, 50);`
+    - list下标从0开始
+    - list插入时, it位置插入元素，剩余元素下标加1
+  - 删除 
+    - 1 erase([begin, end))  // [0, 3) 删除时区间左闭右开， 即左删右不删
+    - 2 erase(pos)  // 删除pos位置元素， 返回下一个数据位置
+    - 3 remove(elem) // 删除list所有数据为elem的项
+    - 4 clear()  // 删除所有元素
+  
