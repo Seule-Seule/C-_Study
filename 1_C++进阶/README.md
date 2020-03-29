@@ -266,3 +266,9 @@
   - 入栈 `s.push(0); `
   - 出栈 `s.pop();`
   - 获取栈顶元素` s.top();`
+
+- [queue队列模型](04_stl基础/05_queue队列模型.cpp)
+  - 出入队列 `q.push(x); q.pop();`
+  - 队头元素 `q.front()`
+  - 队列长度 `q.size()`
+  - 队列判空 `q.empty()`
