@@ -289,3 +289,8 @@
     - 3 remove(elem) // 删除list所有数据为elem的项
     - 4 clear()  // 删除所有元素
   
+- [priority_queue优先级队列](04_stl基础/07_priority_queue优先级队列.cpp)
+  - `#include <queue>`
+  - 优先级队列 默认最大值优先 `priority_queue<int> p1;`  
+  - 最大值优先的优先级队列完整定义 `priority_queue < int  , vector<int>, less<int >> p2; `
+	- 最小值优先的优先级队列定义 `priority_queue< int, vector<int>, greater<int> > p3;  `
