@@ -294,3 +294,27 @@
   - 优先级队列 默认最大值优先 `priority_queue<int> p1;`  
   - 最大值优先的优先级队列完整定义 `priority_queue < int  , vector<int>, less<int >> p2; `
 	- 最小值优先的优先级队列定义 `priority_queue< int, vector<int>, greater<int> > p3;  `
+
+- [set集合模型](04_stl基础/08_set集合模型.cpp)
+  - 集合模型 元素确定（唯一）  自动排序（默认从大到小） 不能位置操作 红黑树 平衡二叉树
+  - 添加 `set1.insert(tmp);`
+  - 遍历, 使用迭代器
+  - 删除 `set1.erase(delete_tmp);`
+  - 定义
+    - 默认 从小到大 `set<int> set1;`
+	  - 默认定义的完整定义 `set<int, less<int>> set2;`
+	  -  从大到小排序 `set<int, greater<int>> set3;`
+  - set 对复杂数据类型的排序 仿函数
+    - 仿函数的定义 `bool operator() (const People& left, const People& right) const`
+    - 重复插入问题 查看函数返回值以确定是否插入成功 （set排序关键字相同时，插入失败）
+    - `pair<set<People, FuncSetPeople>::iterator, bool> pair_p4 = set1.insert(p4);`
+  - set查找问题
+    - 返回元素elem的迭代器的位置 `set<int>::iterator it0 = set1.find(elem); `
+	  - 返回元素elem的个数 1 or 0 `int number = set1.count(elem);`
+	  - 返回第一个大于等于元素elem的迭代器的位置 `set<int>::iterator it1 = set1.lower_bound(elem);`
+	  - 返回第一个大于元素elem的迭代器的位置 `set<int>::iterator it2 = set1.upper_bound(elem);`
+	  - 删除元素 5 `set1.erase(5);`   
+	  - 返回<lower_bound, upper_bound> `pair<set<int>::iterator, set<int>::iterator> pair_set1 = set1.equal_range(5);`
+
+- [multiset集合模型](04_stl基础/09_multiset集合模型.cpp)
+  - 元素不唯一的set模型
