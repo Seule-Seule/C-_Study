@@ -318,3 +318,23 @@
 
 - [multiset集合模型](04_stl基础/09_multiset集合模型.cpp)
   - 元素不唯一的set模型
+
+- [map键值对集合模型](04_stl基础/10_map键值对集合模型.cpp)
+  - 插入操作
+    - 方法一到三，返回 `pair<iterator, bool>` 类型 
+    - 方法四不论值存在与否都插入成功，且后一个值覆盖前一个值
+    - 方法一 `m1.insert(pair<int, string>(1, "01"));`
+	  - 方法二 `m1.insert(make_pair(3, "03"));`
+	  - 方法三 `m1.insert(map<int, string>::value_type(5, "05"));`
+	  - 方法四 `m1[7] = "07";`
+  - 查找
+    - 方法一 `_NODISCARD iterator find(const key_type& _Keyval) `
+      - `if (iterator != m1.end())` 时查找成功
+    - 方法二 `_NODISCARD pair<iterator, iterator> equal_range(const key_type & _Keyval)`
+	    - `pari.first = lower_bound >= elem ; pari.second = upper_bound > elem`
+- [容器共性](04_stl基础/12_容器的值(value)语意.cpp)
+  - 值语意
+    - 要确保装入容器的元素可以被拷贝
+    - 重写 拷贝构造函数
+    - 重载 =操作符
+    - ERROR:没有可用的复制构造函数或复制构造函数声明为“explicit”  解决方法： 形参前加上 const
