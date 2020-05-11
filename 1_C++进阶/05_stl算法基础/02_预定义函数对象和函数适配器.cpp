@@ -75,11 +75,62 @@ struct equal_to {
 
 }
 
+class IsGreat
+{
+public:
+	IsGreat(int i)
+	{
+		_Left = i;
+	}
+	bool operator()(int _Right)
+	{
+		return (_Right > _Left);
+	}
+private:
+	int _Left;
+};
+void test_void1()
+{
+	vector<int> v1;
+	for (int i = 0; i < 20; i++)
+	{
+		v1.push_back(i + 1);
+	}
+	for (vector<int>::iterator it = v1.begin(); it != v1.end(); it++)
+	{
+		cout << *it << " ";
+	}
+	cout << endl;
+	
+
+
+	// 查找vector中3的个数
+	int num1 = count(v1.begin(), v1.end(), 3);
+	cout << "num1: " << num1 << endl;
+
+	// 查找大于2 数的个数
+	int num2 = count_if(v1.begin(), v1.end(), IsGreat(2));
+	cout << "num2: " << num2 << endl;
+
+	// 预定义函数对象查找大于2 的个数
+	int num3 = count_if(v1.begin(), v1.end(), bind2nd(greater<int>(), 2));
+	cout << "num3: " << num3 << endl;
+
+	// 查找奇数个数
+	int num4 = count_if(v1.begin(), v1.end(), bind2nd(modulus<int>(), 2));
+	cout << "num4: " << num4 << endl;
+
+	// 查找偶数个数
+	int num5 = count_if(v1.begin(), v1.end(), not1(bind2nd(modulus<int>(), 2)));
+	cout << "num5: " << num5 << endl;
+}
+
 int main() 
 {
 	int ret = 0;
 
-	test_void0();
+	// test_void0();
+	test_void1();
 
 	cout << "Hello World!" << endl;
 	system("pause");

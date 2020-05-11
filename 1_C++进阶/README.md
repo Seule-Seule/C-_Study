@@ -371,6 +371,12 @@
     - 预定义函数对象：stl定义好的函数对象， 放在functional中 
 	  - 例：plus<Type> 能实现不同类型数据的相加运算
     - sort 默认从小到大， greater 从大到小
-  - 函数适配器
-    - qual_to<string>()的两个参数一个来自容器， 另一个来自sc
-    - bind2nd将sc与qual_to<string>()相联系
+  - 函数适配器：对函数的返回值进行简单计算或填上多余的参数
+    - 四大类：绑定适配器(bind adaptor), 组合适配器(composite adaptor), 指针函数适配器(pointer adaptor), 成员函数适配器(member function adaptor)
+    - 绑定适配器(bind adaptor)
+      - bind1st()实例  // 绑定第一个参数到二元函数适配成一元函数对象
+      - bind2nd()实例  // 绑定第二个参数到二元函数适配成一元函数对象
+    - 组合适配器(composite adaptor)
+      - not1()实例     // 一元函数的逻辑反函数
+      - not2()实例     // 二元函数的逻辑反函数
+    
