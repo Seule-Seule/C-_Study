@@ -284,7 +284,7 @@ void test_void5()
 	set2.insert("aaaa");
 	set2.insert("bbbb");
 	set2.insert("cccc");
-	// 区分大小写的find函数使用
+	// 不区分大小写的find函数使用
 	set<string, CompareNoCase>::iterator it2 = set2.find("aaAa");
 	if (it2 == set2.end())
 	{

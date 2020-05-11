@@ -366,4 +366,11 @@
       - find 默认区分大小写 `set<string>::iterator it = set1.find("aaAa");`
       - 区分大小写的find函数使用 `set<string, CompareNoCase>::iterator it2 = set2.find("aaAa");  // CompareNoCase为二元谓词，负责将所有字符转换为小写`
   
-
+- [预定义函数对象和函数适配器](05_stl算法基础/02_预定义函数对象和函数适配器.cpp)
+  - 预定义函数对象
+    - 预定义函数对象：stl定义好的函数对象， 放在functional中 
+	  - 例：plus<Type> 能实现不同类型数据的相加运算
+    - sort 默认从小到大， greater 从大到小
+  - 函数适配器
+    - qual_to<string>()的两个参数一个来自容器， 另一个来自sc
+    - bind2nd将sc与qual_to<string>()相联系
