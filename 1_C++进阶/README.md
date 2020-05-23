@@ -385,5 +385,35 @@
   ![算法容器迭代器设计理念](05_stl算法基础/STL_soul.png)
 
 - [常用算法](05_stl算法基础/03_stl常见算法.cpp)
-  - for_each()
-  - transform()
+  - for_each()  所使用的函数对象，参数是引用，没有返回值
+  - transform() 所使用的函数对象，参数不能使用引用，必须有返回值
+  - 查找算法：
+    - adjacent_find() // 查找指定范围内重复元素，返回第一对重复元素的第一个元素的it
+    - binary_search() // 二分法查找，有序序列快，返回bool
+    - count() count_if() // 查找指定序列中指定元素个数
+    - find() find_if() // 查找指定元素返回it
+  - 排序算法：
+    - merge() // 合并两个有序序列，存放到另一个序列
+    - sort() // 默认升序，可以自定义规则
+    - random_shuffle() // 随机排序
+    - reverse() // 倒序
+  - 拷贝和替换算法：
+    - copy() // 复制
+    - replace() replace_if()// 替换指定范围内的指定元素为指定值
+    - swap() // 交换容器值
+  - 算术和生成
+    - accumulate() // 范围累加
+    - fill() // 批量替换
+  - 逻辑运算： 
+    - set_union() // 两个有序序列的并集
+    - set_intersection() //  两个有序序列的交集
+    - set_difference() // 构造一个有序序列，该序列包含第一个有序序列中存在而第二个有序序列中不存在的元素。
+
+
+
+
+
+
+
+
+
